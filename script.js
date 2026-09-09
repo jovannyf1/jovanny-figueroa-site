@@ -18,12 +18,13 @@ const assistantAnswers = {
   background: 'Jovanny Figueroa is a Mexican-American computer science student at the Grainger College of Engineering at UIUC. He was born and raised in Chicago, and expects to graduate in 2030.',
   languages: 'Jovanny is bilingual in English and Spanish, and also knows a bit of Mandarin.',
   mission: 'Jovanny’s biggest goal is to become a machine learning engineer and contribute to the teams building the future of AI. He is focused on learning the foundations, developing models, and turning research into useful systems. Making AI more accessible is an important reason he cares about the field, but his broader aim is to help move the technology forward.',
-  work: 'Jovanny has built two iOS concepts. HearMeOut makes conversations more visible for deaf and hard-of-hearing users. Clarity supports people who need help expressing themselves, reading text, or revisiting conversations.',
+  work: 'Jovanny has built two iOS concepts and an AI FAQ chatbot. HearMeOut makes conversations more visible for deaf and hard-of-hearing users. Clarity supports people who need help expressing themselves, reading text, or revisiting conversations. During his 2025–2026 internship at OnYourMark Education, he built a chatbot for the company’s private website that answered common questions and stopped the recurring influx of support tickets.',
   hearmeout: 'HearMeOut is an accessibility concept for deaf and hard-of-hearing users. The site includes the full nine-slide presentation and its original demo video.',
   clarity: 'Clarity is an accessibility concept built around three needs: expressing yourself, understanding text, and revisiting a conversation. The full eight-slide presentation and demo are on the site.',
+  internship: 'During his 2025–2026 internship at OnYourMark Education, Jovanny built an AI chatbot for the company’s private website. It answered FAQs and common questions directly, so the recurring influx of support tickets no longer happened after it was introduced.',
   interests: 'Outside of code, Jovanny enjoys the gym, running, finding new food spots, hiking, anime, comics, movies, and shows. Chest day is still the best day.',
   contact: 'You can reach Jovanny at jfigu53@illinois.edu. You can also find him on GitHub at github.com/jovannyf1 and LinkedIn at linkedin.com/in/jovanny-figueroa-658091256/.',
-  site: 'The site covers Jovanny’s background, mission, selected work, full HearMeOut and Clarity decks, embedded demos, interests, and contact links.',
+  site: 'The site covers Jovanny’s background, mission, selected work, his OnYourMark internship chatbot, full HearMeOut and Clarity decks, embedded demos, interests, and contact links.',
   assistant: 'I’m Águila, a small site guide that runs locally in your browser. I answer questions about Jovanny and this website without sending anything to an AI API.',
 };
 
@@ -38,6 +39,7 @@ const answerAssistantQuestion = (question) => {
   if (/(hearmeout|hearme out|hearing|deaf|hard of hearing)/.test(query)) return assistantAnswers.hearmeout;
   if (/(clarity|dyslexia|adhd|express myself|expressing)/.test(query)) return assistantAnswers.clarity;
   if (/(language|languages|spanish|english|mandarin|bilingual|speak)/.test(query)) return assistantAnswers.languages;
+  if (/(onyourmark|internship|intern|chatbot|faq|support ticket|support tickets|support influx)/.test(query)) return assistantAnswers.internship;
   if (/(project|projects|built|app|apps|ios|portfolio)/.test(query)) return assistantAnswers.work;
   if (/(gym|running|food|hiking|adventure|anime|comic|movie|film|outside|hobby|hobbies|breaking bad|better call saul|obsession)/.test(query)) return assistantAnswers.interests;
   if (/(mission|goal|future|career|engineer|\bai\b|machine learning|ml engineer|accessib)/.test(query)) return assistantAnswers.mission;
