@@ -1,6 +1,6 @@
 # Jovanny Figueroa personal site
 
-This is a static HTML/CSS/JavaScript portfolio site for Jovanny Figueroa. It includes interactive viewers for the complete HearMeOut and Clarity presentations, the demo videos embedded in those source files, and a local site guide that answers questions about Jovanny and the site without an API key.
+This is a static HTML/CSS/JavaScript portfolio site for Jovanny Figueroa. It includes a home page, a dedicated projects page with interactive viewers for the complete HearMeOut and Clarity presentations, the demo videos embedded in those source files, and a local site guide that answers questions about Jovanny and the site without an API key.
 
 ## Open locally
 
@@ -16,7 +16,7 @@ Then visit `http://localhost:4173`.
 
 The folder can be deployed directly to GitHub Pages, Netlify, Vercel, or another static host. Once a domain is chosen, update the site metadata and any canonical URL settings you want to add.
 
-The two large video files are included in `assets/`, so keep the entire folder together when deploying.
+The browser-ready video files are included in `assets/`, so keep the entire folder together when deploying.
 
 ## Site guide
 
@@ -30,4 +30,5 @@ The two large video files are included in `assets/`, so keep the entire folder t
 - `assets/clarity-slides/` contains all eight rendered Clarity slides.
 - `assets/hearmeout-demo.mp4` is the browser-ready conversion of the video extracted from the HearMeOut Keynote package.
 - `assets/hearmeout-demo.mov` is the original video extracted from the HearMeOut Keynote package.
-- `assets/clarity-demo.mp4` is the video extracted from the Clarity PowerPoint package.
+- `assets/clarity-demo-web.mp4` is the web-optimized version of the video extracted from the Clarity PowerPoint package.
+- `projects.html` contains the full project archive, slide viewers, and embedded demos.

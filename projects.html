@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07111f" />
+    <meta
+      name="description"
+      content="Explore Jovanny Figueroa's iOS concepts, full presentations, and embedded project demos."
+    />
+    <title>Projects | Jovanny Figueroa</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header" data-header>
+      <a class="wordmark" href="index.html#top" aria-label="Jovanny Figueroa home">
+        <span class="wordmark-mark">JF</span>
+        <span class="wordmark-name">Jovanny Figueroa</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="projects.html" aria-current="page">Projects</a>
+        <a href="index.html#about-me">About Me</a>
+        <a class="nav-contact" href="index.html#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="page-hero section-shell" id="top" aria-labelledby="projects-title">
+        <div class="section-kicker">Project archive <span>01</span></div>
+        <h1 id="projects-title">Projects I’ve built to learn by building.</h1>
+        <p class="page-hero-summary">
+          I’m interested in the space where machine learning, accessibility, and everyday communication meet.
+          Here are the two iOS concepts I’ve developed, along with the complete presentations and demo videos behind them.
+        </p>
+      </section>
+
+      <section class="work section-shell section-space" id="work" aria-labelledby="work-title">
+        <div class="section-heading-row reveal">
+          <div>
+            <div class="section-kicker">Selected work <span>02</span></div>
+            <h2 id="work-title" class="display-heading">I build technology with a reason to exist.</h2>
+          </div>
+          <p class="section-heading-note">I’ve shaped two iOS concepts around a simple question: what would make everyday communication easier?</p>
+        </div>
+
+        <div class="project-list">
+          <article class="project-card reveal">
+            <div class="project-visual project-visual-hearmeout">
+              <img src="assets/hearmeout-preview.jpg" alt="My HearMeOut project presentation cover" />
+              <span class="project-index">01</span>
+            </div>
+            <div class="project-details">
+              <div>
+                <p class="project-type">iOS concept · Communication</p>
+                <h3>HearMeOut</h3>
+              </div>
+              <p>
+                I built HearMeOut as a communication tool for deaf and hard-of-hearing users.
+                I wanted to make the conversation visible when sound isn’t enough.
+              </p>
+              <div class="project-tags"><span>Group Mode</span><span>Live text</span><span>Accessibility</span></div>
+              <button class="project-link" type="button" data-deck-jump="hearmeout-deck">Explore the full presentation <span aria-hidden="true">↓</span></button>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-visual project-visual-clarity">
+              <img src="assets/clarity-features.png" alt="My Clarity project presentation slide showing three accessibility features" />
+              <span class="project-index">02</span>
+            </div>
+            <div class="project-details">
+              <div>
+                <p class="project-type">iOS concept · Cognitive accessibility</p>
+                <h3>Clarity</h3>
+              </div>
+              <p>
+                I built Clarity as an all-in-one support concept for people who need help understanding text, revisiting a conversation,
+                or expressing themselves clearly.
+              </p>
+              <div class="project-tags"><span>Text summary</span><span>ReHear</span><span>Express</span></div>
+              <button class="project-link" type="button" data-deck-jump="clarity-deck">Explore the full presentation <span aria-hidden="true">↓</span></button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="decks section-shell section-space" id="decks" aria-labelledby="decks-title">
+        <div class="section-heading-row reveal">
+          <div>
+            <div class="section-kicker">Full project archives <span>03</span></div>
+            <h2 id="decks-title" class="display-heading">See the work the way I presented it. <span class="heading-context">(from ECC: Everyone Can Code Chicago)</span></h2>
+          </div>
+          <p class="section-heading-note">I included every slide, plus the original demo video, in each deck. Use the arrows or choose a thumbnail to explore.</p>
+        </div>
+
+        <div class="deck-viewers">
+          <article class="deck-viewer reveal" id="hearmeout-deck" data-deck-viewer="hearmeout" tabindex="0" aria-label="HearMeOut full presentation viewer">
+            <header class="deck-header">
+              <div>
+                <p class="deck-eyebrow">HearMeOut / full presentation</p>
+                <h3>HearMeOut</h3>
+              </div>
+              <div class="deck-nav" aria-label="HearMeOut slide controls">
+                <button type="button" data-deck-prev aria-label="Previous HearMeOut slide">←</button>
+                <output data-deck-count>01 / 09</output>
+                <button type="button" data-deck-next aria-label="Next HearMeOut slide">→</button>
+              </div>
+            </header>
+            <div class="deck-stage-wrap">
+              <div class="deck-stage">
+                <img data-deck-stage src="assets/hearmeout-slides/01-cover.png" alt="HearMeOut presentation cover" />
+              </div>
+              <div class="deck-caption">
+                <p class="deck-slide-title" data-deck-title>Cover</p>
+                <p class="deck-slide-hint">Use the arrow keys when this viewer is focused.</p>
+              </div>
+            </div>
+            <div class="deck-thumbnails" data-deck-thumbnails role="list" aria-label="HearMeOut presentation slides"></div>
+            <div class="deck-media">
+              <div class="media-copy">
+                <p class="media-eyebrow">Embedded demo · slide 05</p>
+                <h4>HearMeOut in motion</h4>
+                <p>I’ve included the original video from the Keynote file here with native controls.</p>
+              </div>
+              <video controls preload="metadata" poster="assets/hearmeout-video-poster.png">
+                <source src="assets/hearmeout-demo.mp4" type="video/mp4" />
+                <source src="assets/hearmeout-demo.mov" type="video/quicktime" />
+                Your browser does not support this video format. <a href="assets/hearmeout-demo.mov">Download the demo</a>.
+              </video>
+            </div>
+          </article>
+
+          <article class="deck-viewer reveal" id="clarity-deck" data-deck-viewer="clarity" tabindex="0" aria-label="Clarity full presentation viewer">
+            <header class="deck-header">
+              <div>
+                <p class="deck-eyebrow">Clarity / full presentation</p>
+                <h3>Clarity</h3>
+              </div>
+              <div class="deck-nav" aria-label="Clarity slide controls">
+                <button type="button" data-deck-prev aria-label="Previous Clarity slide">←</button>
+                <output data-deck-count>01 / 08</output>
+                <button type="button" data-deck-next aria-label="Next Clarity slide">→</button>
+              </div>
+            </header>
+            <div class="deck-stage-wrap">
+              <div class="deck-stage">
+                <img data-deck-stage src="assets/clarity-slides/slide-1.png" alt="Clarity presentation cover" />
+              </div>
+              <div class="deck-caption">
+                <p class="deck-slide-title" data-deck-title>Cover</p>
+                <p class="deck-slide-hint">Use the arrow keys when this viewer is focused.</p>
+              </div>
+            </div>
+            <div class="deck-thumbnails" data-deck-thumbnails role="list" aria-label="Clarity presentation slides"></div>
+            <div class="deck-media">
+              <div class="media-copy">
+                <p class="media-eyebrow">Embedded demo · slide 06</p>
+                <h4>Clarity in motion</h4>
+                <p>I’ve included the original PowerPoint video here with native controls.</p>
+              </div>
+              <video controls preload="metadata" poster="assets/clarity-slides/slide-6.png">
+                <source src="assets/clarity-demo-web.mp4" type="video/mp4" />
+                Your browser does not support this video format. <a href="assets/clarity-demo-web.mp4">Download the demo</a>.
+              </video>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer section-shell">
+      <span>© 2026 Jovanny Figueroa</span>
+      <span>I’m building with curiosity in Chicago</span>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+
+    <button class="assistant-trigger" type="button" data-assistant-open aria-controls="site-assistant" aria-expanded="false" aria-label="Open Águila site guide">
+      <span class="aguila-mark" aria-hidden="true"><img src="assets/aguila-profile.png" alt="" /></span>
+      <span class="assistant-trigger-copy"><strong>Águila</strong><small>Jovanny’s site guide</small></span>
+    </button>
+
+    <dialog class="assistant-dialog" id="site-assistant" data-assistant-dialog aria-labelledby="assistant-title">
+      <div class="assistant-shell">
+        <header class="assistant-header">
+          <div class="assistant-brand">
+            <span class="aguila-mark aguila-mark-small" aria-hidden="true"><img src="assets/aguila-profile.png" alt="" /></span>
+            <div>
+              <p class="assistant-eyebrow">Águila / site guide</p>
+              <h2 id="assistant-title">What would you like to know?</h2>
+            </div>
+          </div>
+          <button class="assistant-close" type="button" data-assistant-close aria-label="Close Águila site guide">×</button>
+        </header>
+
+        <div class="assistant-messages" data-assistant-messages aria-live="polite">
+          <p class="assistant-message assistant-message-guide">I’m Águila. I can help with Jovanny’s background, projects, interests, and contact links. Ask me something about the site.</p>
+        </div>
+
+        <div class="assistant-suggestions" aria-label="Suggested questions">
+          <button type="button" data-assistant-prompt="What has Jovanny built?">What has he built?</button>
+          <button type="button" data-assistant-prompt="How can I contact Jovanny?">How can I contact him?</button>
+          <button type="button" data-assistant-prompt="What is Jovanny like outside of code?">What is he like outside of code?</button>
+          <button type="button" data-assistant-prompt="What languages does Jovanny speak?">What languages does he speak?</button>
+        </div>
+
+        <form class="assistant-form" data-assistant-form>
+          <label class="sr-only" for="assistant-question">Ask about Jovanny or this website</label>
+          <input id="assistant-question" name="question" type="text" autocomplete="off" placeholder="Ask about Jovanny or this site" />
+          <button type="submit">Send <span aria-hidden="true">↗</span></button>
+        </form>
+        <p class="assistant-disclosure">Local site guide · no API key required</p>
+      </div>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
