@@ -10,6 +10,8 @@ window.addEventListener('scroll', updateHeader, { passive: true });
 const nameSequence = document.querySelector('[data-name-sequence]');
 const nameSequenceDisplayLetters = [...document.querySelectorAll('[data-name-display-letter]')];
 const nameSequenceStatus = nameSequence?.querySelector('[data-name-status]');
+const nameSequenceNextKeys = [...document.querySelectorAll('[data-name-next-key]')];
+const nameSequenceCallout = document.querySelector('.name-sequence-callout');
 const nameSequenceKeys = ['j', 'o', 'v', 'a', 'n', 'n', 'y'];
 const nameSequenceTargets = ['mission', 'work', 'principles', 'about-me', 'about-life', 'contact', 'site-footer'];
 let nameSequenceIndex = 0;
@@ -23,6 +25,22 @@ const updateNameSequence = () => {
   });
 };
 
+const updateNameSequencePrompt = () => {
+  if (!nameSequenceStatus) return;
+  if (nameSequenceIndex >= nameSequenceKeys.length) {
+    nameSequenceStatus.textContent = 'You’re in.';
+    nameSequenceNextKeys.forEach((key) => { key.textContent = '✓'; });
+    return;
+  }
+  if (nameSequenceNextKeys.length) {
+    nameSequenceNextKeys.forEach((key) => {
+      key.textContent = nameSequenceKeys[nameSequenceIndex].toUpperCase();
+    });
+  } else {
+    nameSequenceStatus.textContent = `Type “${nameSequenceKeys[nameSequenceIndex].toUpperCase()}” to continue`;
+  }
+};
+
 if (nameSequence && document.body.classList.contains('home-page')) {
   const lockedHomeLinks = [...document.querySelectorAll('.site-nav a[href^="#"]')];
 
@@ -30,7 +48,7 @@ if (nameSequence && document.body.classList.contains('home-page')) {
     link.addEventListener('click', (event) => {
       if (!document.body.classList.contains('name-sequence-locked')) return;
       event.preventDefault();
-      if (nameSequenceStatus) nameSequenceStatus.textContent = `Type “${nameSequenceKeys[nameSequenceIndex].toUpperCase()}”`;
+      updateNameSequencePrompt();
     });
   });
 
@@ -50,15 +68,17 @@ if (nameSequence && document.body.classList.contains('home-page')) {
     if (nameSequenceIndex === nameSequenceKeys.length) {
       document.body.classList.remove('name-sequence-locked');
       nameSequence.classList.add('is-complete');
-      if (nameSequenceStatus) nameSequenceStatus.textContent = 'You’re in.';
+      if (nameSequenceCallout) nameSequenceCallout.hidden = true;
+      updateNameSequencePrompt();
       window.setTimeout(() => target?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
       return;
     }
 
-    if (nameSequenceStatus) nameSequenceStatus.textContent = `Type “${nameSequenceKeys[nameSequenceIndex].toUpperCase()}”`;
+    updateNameSequencePrompt();
     window.requestAnimationFrame(() => target?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
   });
   updateNameSequence();
+  updateNameSequencePrompt();
 }
 
 const assistantDialog = document.querySelector('[data-assistant-dialog]');
