@@ -63,6 +63,20 @@ h1, .display-heading { font-family: var(--display); font-weight: 600; letter-spa
 h1 { max-width: 680px; margin-bottom: 1.65rem; font-size: clamp(3.5rem, 6.6vw, 6.6rem); line-height: .94; }
 .hero-summary { max-width: 510px; color: var(--muted); font-size: clamp(1rem, 1.15vw, 1.1rem); line-height: 1.75; }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; margin-top: 2.4rem; }
+.name-sequence { max-width: 510px; margin-top: 2.4rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.name-sequence-topline, .name-sequence-footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.name-sequence-topline { color: var(--muted); font-family: var(--mono); font-size: .61rem; letter-spacing: .09em; text-transform: uppercase; }
+.name-sequence-instruction { margin: .75rem 0 .9rem; color: var(--paper-strong); font-size: .88rem; line-height: 1.55; }
+.name-sequence-letters { display: flex; flex-wrap: wrap; gap: .4rem; }
+.name-sequence-letters span { display: grid; width: 2.15rem; height: 2.15rem; place-items: center; border: 1px solid var(--line); color: var(--muted); font-family: var(--display); font-size: 1.08rem; line-height: 1; transition: background .25s ease, border-color .25s ease, box-shadow .25s ease, color .25s ease, transform .25s ease; }
+.name-sequence-letters span.is-next { border-color: var(--cyan); color: var(--paper-strong); box-shadow: 0 0 18px rgba(141, 225, 229, .14); transform: translateY(-2px); }
+.name-sequence-letters span.is-complete { border-color: var(--cyan); background: var(--cyan); color: var(--ink); }
+.name-sequence-footer { margin-top: .9rem; }
+.name-sequence-footer p { margin: 0; color: var(--muted); font-family: var(--mono); font-size: .6rem; letter-spacing: .04em; text-transform: uppercase; }
+.name-sequence-footer a { padding-bottom: .18rem; border-bottom: 1px solid var(--line); color: var(--muted); font-family: var(--mono); font-size: .6rem; letter-spacing: .04em; text-transform: uppercase; }
+.name-sequence-footer a:hover, .name-sequence-footer a:focus-visible { border-color: var(--cyan); color: var(--cyan); }
+.name-sequence + * { scroll-margin-top: 5rem; }
+#mission, #work, #principles, #about-me, #about-life, #contact, #site-footer { scroll-margin-top: 5rem; }
 .button { display: inline-flex; align-items: center; gap: 1.4rem; padding: .95rem 1.15rem; border: 1px solid var(--line); font-size: .82rem; font-weight: 700; }
 .button-primary { background: var(--cyan); color: var(--ink); transition: background .2s ease, transform .2s ease; }
 .button-primary:hover, .button-primary:focus-visible { background: var(--paper-strong); transform: translateY(-2px); }
@@ -292,6 +306,7 @@ h1 { max-width: 680px; margin-bottom: 1.65rem; font-size: clamp(3.5rem, 6.6vw, 6
   .page-hero-signal div { flex-direction: row; align-items: baseline; padding-bottom: .65rem; border-bottom: 1px solid var(--line); }
   .page-hero-signal span { text-align: right; }
   .art-core-large { font-size: clamp(3.2rem, 15vw, 5rem); }
+  .name-sequence-letters span { width: 1.95rem; height: 1.95rem; }
   .section-heading-row, .contact-topline, .contact-bottomline, .site-footer { align-items: flex-start; flex-direction: column; }
   .section-heading-row { gap: 1.5rem; margin-bottom: 2.5rem; }
   .project-visual { min-height: 240px; }

@@ -7,6 +7,44 @@ const updateHeader = () => {
 updateHeader();
 window.addEventListener('scroll', updateHeader, { passive: true });
 
+const nameSequence = document.querySelector('[data-name-sequence]');
+const nameSequenceLetters = nameSequence ? [...nameSequence.querySelectorAll('[data-name-letter]')] : [];
+const nameSequenceProgress = nameSequence?.querySelector('[data-name-progress]');
+const nameSequenceStatus = nameSequence?.querySelector('[data-name-status]');
+const nameSequenceKeys = ['j', 'o', 'v', 'a', 'n', 'n', 'y'];
+const nameSequenceTargets = ['mission', 'work', 'principles', 'about-me', 'about-life', 'contact', 'site-footer'];
+let nameSequenceIndex = 0;
+
+const updateNameSequence = () => {
+  nameSequenceLetters.forEach((letter, index) => {
+    letter.classList.toggle('is-complete', index < nameSequenceIndex);
+    letter.classList.toggle('is-next', index === nameSequenceIndex && nameSequenceIndex < nameSequenceKeys.length);
+  });
+  if (nameSequenceProgress) nameSequenceProgress.textContent = `${String(nameSequenceIndex).padStart(2, '0')} / 07`;
+};
+
+if (nameSequence && document.body.classList.contains('home-page')) {
+  document.addEventListener('keydown', (event) => {
+    if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+    const activeElement = document.activeElement;
+    if (activeElement && (['INPUT', 'TEXTAREA', 'SELECT'].includes(activeElement.tagName) || activeElement.isContentEditable)) return;
+    if (document.querySelector('dialog[open]')) return;
+    const expectedKey = nameSequenceKeys[nameSequenceIndex];
+    if (!expectedKey || event.key.toLowerCase() !== expectedKey) return;
+    event.preventDefault();
+    const target = document.getElementById(nameSequenceTargets[nameSequenceIndex]);
+    nameSequenceIndex += 1;
+    updateNameSequence();
+    if (nameSequenceStatus) {
+      nameSequenceStatus.textContent = nameSequenceIndex === nameSequenceKeys.length
+        ? 'JOVANNY complete. You made it through.'
+        : `Nice. Press ${nameSequenceKeys[nameSequenceIndex].toUpperCase()} next.`;
+    }
+    target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  updateNameSequence();
+}
+
 const assistantDialog = document.querySelector('[data-assistant-dialog]');
 const assistantOpenButton = document.querySelector('[data-assistant-open]');
 const assistantCloseButton = document.querySelector('[data-assistant-close]');
