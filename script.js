@@ -8,22 +8,32 @@ updateHeader();
 window.addEventListener('scroll', updateHeader, { passive: true });
 
 const nameSequence = document.querySelector('[data-name-sequence]');
-const nameSequenceLetters = nameSequence ? [...nameSequence.querySelectorAll('[data-name-letter]')] : [];
-const nameSequenceProgress = nameSequence?.querySelector('[data-name-progress]');
+const nameSequenceDisplayLetters = [...document.querySelectorAll('[data-name-display-letter]')];
 const nameSequenceStatus = nameSequence?.querySelector('[data-name-status]');
 const nameSequenceKeys = ['j', 'o', 'v', 'a', 'n', 'n', 'y'];
 const nameSequenceTargets = ['mission', 'work', 'principles', 'about-me', 'about-life', 'contact', 'site-footer'];
 let nameSequenceIndex = 0;
 
 const updateNameSequence = () => {
-  nameSequenceLetters.forEach((letter, index) => {
-    letter.classList.toggle('is-complete', index < nameSequenceIndex);
+  nameSequenceDisplayLetters.forEach((letter, index) => {
+    const isTyped = index < nameSequenceIndex;
+    letter.textContent = isTyped ? nameSequenceKeys[index].toUpperCase() : '·';
+    letter.classList.toggle('is-typed', isTyped);
     letter.classList.toggle('is-next', index === nameSequenceIndex && nameSequenceIndex < nameSequenceKeys.length);
   });
-  if (nameSequenceProgress) nameSequenceProgress.textContent = `${String(nameSequenceIndex).padStart(2, '0')} / 07`;
 };
 
 if (nameSequence && document.body.classList.contains('home-page')) {
+  const lockedHomeLinks = [...document.querySelectorAll('.site-nav a[href^="#"]')];
+
+  lockedHomeLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      if (!document.body.classList.contains('name-sequence-locked')) return;
+      event.preventDefault();
+      if (nameSequenceStatus) nameSequenceStatus.textContent = `Type “${nameSequenceKeys[nameSequenceIndex].toUpperCase()}”`;
+    });
+  });
+
   document.addEventListener('keydown', (event) => {
     if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
     const activeElement = document.activeElement;
@@ -35,12 +45,18 @@ if (nameSequence && document.body.classList.contains('home-page')) {
     const target = document.getElementById(nameSequenceTargets[nameSequenceIndex]);
     nameSequenceIndex += 1;
     updateNameSequence();
-    if (nameSequenceStatus) {
-      nameSequenceStatus.textContent = nameSequenceIndex === nameSequenceKeys.length
-        ? 'JOVANNY complete. You made it through.'
-        : `Nice. Press ${nameSequenceKeys[nameSequenceIndex].toUpperCase()} next.`;
+    target?.classList.add('is-name-unlocked');
+
+    if (nameSequenceIndex === nameSequenceKeys.length) {
+      document.body.classList.remove('name-sequence-locked');
+      nameSequence.classList.add('is-complete');
+      if (nameSequenceStatus) nameSequenceStatus.textContent = 'You’re in.';
+      window.setTimeout(() => target?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
+      return;
     }
-    target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    if (nameSequenceStatus) nameSequenceStatus.textContent = `Type “${nameSequenceKeys[nameSequenceIndex].toUpperCase()}”`;
+    window.requestAnimationFrame(() => target?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
   });
   updateNameSequence();
 }
