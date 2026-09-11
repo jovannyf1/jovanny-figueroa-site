@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07111f" />
+    <meta name="description" content="Jovanny Figueroa’s food notes: Chicago spots, serious burgers, and the next place worth trying." />
+    <title>Food Notes | Jovanny Figueroa</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="notes-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header" data-header>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="index.html#about-me">About Me</a>
+        <a class="nav-contact" href="index.html#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="note-hero section-shell" aria-labelledby="note-title">
+        <div class="note-hero-copy">
+          <a class="note-back" href="index.html#about-life">← Back to When I’m away from code</a>
+          <p class="note-kicker">Food notes / Chicago</p>
+          <h1 id="note-title">I’m always looking for the next place worth the walk.</h1>
+          <p class="note-hero-summary">Trying a new food spot is one of my favorite ways to make a normal day feel like an outing. I’m especially serious about burgers, but I’m not loyal enough to stop exploring.</p>
+        </div>
+        <figure class="note-hero-media">
+          <img src="assets/au-cheval-burger.png" alt="Burger with bacon, cheddar, a fried egg, mushrooms, and pickles at a restaurant table" />
+          <figcaption>One of my favorite kinds of Chicago research.</figcaption>
+        </figure>
+      </section>
+
+      <section class="note-content section-shell" aria-labelledby="food-list-title">
+        <div class="note-content-intro">
+          <p class="note-kicker">My food map</p>
+          <h2 id="food-list-title">The list is still growing.</h2>
+          <p>I keep a running mental list of places I want to try, then turn it into a plan with a friend. The best spots usually give me a reason to leave my usual route.</p>
+        </div>
+        <div class="note-list">
+          <article class="note-card">
+            <span>01</span>
+            <div><h3>Au Cheval</h3><p>This is the burger benchmark in my head: rich, messy, and worth making the meal the whole event.</p><small>My order philosophy: commit to the burger.</small></div>
+          </article>
+          <article class="note-card">
+            <span>02</span>
+            <div><h3>Neighborhood spots</h3><p>I like finding places that feel tied to the block they’re on—small rooms, good food, and a reason to come back.</p><small>Best shared with a friend and no strict schedule.</small></div>
+          </article>
+          <article class="note-card">
+            <span>03</span>
+            <div><h3>The next place</h3><p>I’m still building my official favorites list. For me, the fun is trying something new before it becomes a routine.</p><small>Send me a recommendation and I’ll probably ask what to order.</small></div>
+          </article>
+        </div>
+        <aside class="note-callout"><strong>My rule:</strong> if I’m already thinking about the food on the ride home, it made the list.</aside>
+      </section>
+    </main>
+
+    <footer class="site-footer section-shell">
+      <span>© 2026 Jovanny Figueroa</span>
+      <span>I’m building with curiosity in Chicago</span>
+      <a href="#main-content">Back to top ↑</a>
+    </footer>
+
+    <button class="assistant-trigger" type="button" data-assistant-open aria-controls="site-assistant" aria-expanded="false" aria-label="Open Águila site guide">
+      <span class="aguila-mark" aria-hidden="true"><img src="assets/aguila-profile.png" alt="" /></span>
+      <span class="assistant-trigger-copy"><strong>Águila</strong><small>Jovanny’s site guide</small></span>
+    </button>
+    <dialog class="assistant-dialog" id="site-assistant" data-assistant-dialog aria-labelledby="assistant-title">
+      <div class="assistant-shell">
+        <header class="assistant-header"><div class="assistant-brand"><span class="aguila-mark aguila-mark-small" aria-hidden="true"><img src="assets/aguila-profile.png" alt="" /></span><div><p class="assistant-eyebrow">Águila / site guide</p><h2 id="assistant-title">What would you like to know?</h2></div></div><button class="assistant-close" type="button" data-assistant-close aria-label="Close Águila site guide">×</button></header>
+        <div class="assistant-messages" data-assistant-messages aria-live="polite"><p class="assistant-message assistant-message-guide">I’m Águila. I can help with Jovanny’s background, projects, interests, and contact links. Ask me something about the site.</p></div>
+        <div class="assistant-suggestions" aria-label="Suggested questions"><button type="button" data-assistant-prompt="What is Jovanny like outside of code?">What is he like outside of code?</button><button type="button" data-assistant-prompt="What are Jovanny’s interests?">What are his interests?</button><button type="button" data-assistant-prompt="How can I contact Jovanny?">How can I contact him?</button></div>
+        <form class="assistant-form" data-assistant-form><label class="sr-only" for="assistant-question">Ask about Jovanny or this website</label><input id="assistant-question" name="question" type="text" autocomplete="off" placeholder="Ask about Jovanny or this site" /><button type="submit">Send <span aria-hidden="true">↗</span></button></form>
+      </div>
+    </dialog>
+    <script src="script.js"></script>
+  </body>
+</html>
+

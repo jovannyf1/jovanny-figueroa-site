@@ -222,13 +222,39 @@ h1 { max-width: 600px; margin-bottom: 1.35rem; font-size: clamp(3rem, 5.4vw, 5.4
 .outside-note small { color: var(--muted); }
 .outside-photo-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(220px, .75fr); grid-template-rows: repeat(3, minmax(150px, 1fr)); gap: .85rem; margin: 2.5rem 0 3.5rem; }
 .outside-photo { position: relative; min-height: 0; margin: 0; overflow: hidden; border: 1px solid var(--line); background: var(--ink-deep); }
+.outside-photo-link { display: block; height: 100%; color: inherit; }
 .outside-photo-city { grid-row: span 3; min-height: 520px; }
 .outside-photo img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.82) contrast(1.04) brightness(.78); transition: transform .5s ease, filter .5s ease; }
 .outside-photo::after { position: absolute; inset: 30% 0 0; content: ''; background: linear-gradient(180deg, transparent, rgba(5, 12, 22, .9)); pointer-events: none; }
 .outside-photo figcaption { position: absolute; right: 1rem; bottom: 1rem; left: 1rem; z-index: 1; display: flex; flex-direction: column; gap: .35rem; }
 .outside-photo figcaption span { color: var(--cyan); font-family: var(--mono); font-size: .6rem; letter-spacing: .08em; text-transform: uppercase; }
 .outside-photo figcaption strong { max-width: 22rem; color: var(--paper-strong); font-family: var(--display); font-size: clamp(1.3rem, 2vw, 2.1rem); font-weight: 500; letter-spacing: -.04em; line-height: .98; }
+.outside-photo figcaption em { color: var(--paper-strong); font-family: var(--mono); font-size: .58rem; font-style: normal; letter-spacing: .07em; opacity: .72; text-transform: uppercase; }
 .outside-photo:hover img, .outside-photo:focus-within img { filter: saturate(.98) contrast(1.04) brightness(.92); transform: scale(1.045); }
+
+.notes-page { background: radial-gradient(circle at 8% 8%, rgba(53, 111, 160, .2), transparent 30rem), linear-gradient(180deg, #0a1422 0%, #0b1727 60%, #09131f 100%); }
+.notes-page .site-header { margin-bottom: 0; }
+.note-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, .72fr); gap: clamp(2.5rem, 7vw, 7rem); align-items: center; padding-top: clamp(3.5rem, 9vw, 7rem); padding-bottom: clamp(3.5rem, 7vw, 6rem); border-bottom: 1px solid var(--line); }
+.note-back { display: inline-flex; margin-bottom: 2.3rem; color: var(--muted); font-family: var(--mono); font-size: .64rem; letter-spacing: .06em; text-transform: uppercase; transition: color .2s ease; }
+.note-back:hover, .note-back:focus-visible { color: var(--cyan); }
+.note-kicker { margin: 0 0 1rem; color: var(--cyan); font-family: var(--mono); font-size: .68rem; letter-spacing: .09em; text-transform: uppercase; }
+.note-hero h1 { max-width: 760px; margin-bottom: 1.4rem; font-size: clamp(3rem, 5.5vw, 5.7rem); }
+.note-hero-summary { max-width: 580px; margin: 0; color: var(--muted); font-size: clamp(.98rem, 1.1vw, 1.08rem); line-height: 1.75; }
+.note-hero-media { position: relative; min-height: 450px; margin: 0; overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
+.note-hero-media img { width: 100%; height: 100%; min-height: 450px; object-fit: cover; filter: saturate(.82) contrast(1.04) brightness(.82); }
+.note-hero-media::after { position: absolute; inset: 35% 0 0; content: ''; background: linear-gradient(180deg, transparent, rgba(5, 12, 22, .82)); pointer-events: none; }
+.note-hero-media figcaption { position: absolute; right: 1.2rem; bottom: 1.2rem; left: 1.2rem; z-index: 1; color: var(--paper-strong); font-family: var(--mono); font-size: .62rem; letter-spacing: .07em; text-transform: uppercase; }
+.note-content { display: grid; grid-template-columns: minmax(220px, .68fr) minmax(0, 1.32fr); gap: clamp(2.5rem, 8vw, 8rem); padding-top: clamp(4rem, 8vw, 7rem); padding-bottom: clamp(4.5rem, 9vw, 8rem); }
+.note-content-intro h2 { max-width: 430px; margin-bottom: 1.25rem; font-family: var(--display); font-size: clamp(2.3rem, 4vw, 4.2rem); letter-spacing: -.06em; line-height: .95; }
+.note-content-intro > p:last-child { max-width: 350px; color: var(--muted); font-size: .92rem; line-height: 1.75; }
+.note-list { border-top: 1px solid var(--line); }
+.note-card { display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: 1rem; padding: 1.35rem 0; border-bottom: 1px solid var(--line); }
+.note-card > span { color: var(--cyan); font-family: var(--mono); font-size: .66rem; }
+.note-card h3 { margin-bottom: .45rem; color: var(--paper-strong); font-family: var(--display); font-size: clamp(1.6rem, 2.4vw, 2.45rem); font-weight: 500; letter-spacing: -.045em; line-height: 1; }
+.note-card p { max-width: 580px; margin-bottom: .5rem; color: var(--muted); font-size: .9rem; line-height: 1.7; }
+.note-card small { color: var(--cyan); font-family: var(--mono); font-size: .6rem; letter-spacing: .04em; text-transform: uppercase; }
+.note-callout { grid-column: 2; margin-top: 2rem; padding: 1.2rem 1.25rem; border-left: 3px solid var(--cyan); background: rgba(141, 225, 229, .08); color: var(--muted); font-size: .9rem; line-height: 1.65; }
+.note-callout strong { color: var(--paper-strong); }
 
 .contact { padding-bottom: 8rem; }
 .contact-frame { padding: clamp(1.5rem, 5vw, 4rem); background: var(--surface-raised); color: var(--paper-strong); border: 1px solid var(--line); }
@@ -305,6 +331,11 @@ h1 { max-width: 600px; margin-bottom: 1.35rem; font-size: clamp(3rem, 5.4vw, 5.4
   .deck-media { grid-template-columns: 1fr; }
   .principles { grid-template-columns: 1fr; gap: 3rem; }
   .outside-grid { grid-template-columns: 1fr; }
+  .note-hero { grid-template-columns: 1fr; }
+  .note-hero-media { width: min(100%, 560px); min-height: 380px; justify-self: end; }
+  .note-hero-media img { min-height: 380px; }
+  .note-content { grid-template-columns: 1fr; gap: 3rem; }
+  .note-callout { grid-column: 1; }
 }
 
 @media (max-width: 580px) {
@@ -335,6 +366,11 @@ h1 { max-width: 600px; margin-bottom: 1.35rem; font-size: clamp(3rem, 5.4vw, 5.4
   .outside-photo-grid { grid-template-columns: 1fr; grid-template-rows: none; gap: .7rem; margin-top: 2rem; }
   .outside-photo, .outside-photo-city { min-height: 230px; }
   .outside-photo-city { grid-row: auto; min-height: 350px; }
+  .note-hero { padding-top: 3rem; }
+  .note-hero h1 { font-size: clamp(2.85rem, 14vw, 4.6rem); }
+  .note-hero-media, .note-hero-media img { min-height: 300px; }
+  .note-content { padding-top: 3.5rem; }
+  .note-card { grid-template-columns: 1.7rem minmax(0, 1fr); gap: .75rem; }
   .outside-note { grid-template-columns: 2rem 1fr; gap: .75rem; padding: 1rem 0; }
   .outside-note strong { font-size: 1.55rem; }
   .outside-note small { grid-column: 2; }
