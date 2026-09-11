@@ -7,33 +7,6 @@ const updateHeader = () => {
 updateHeader();
 window.addEventListener('scroll', updateHeader, { passive: true });
 
-const siteChapter = document.querySelector('[data-site-chapter]');
-const chapterSections = [...document.querySelectorAll('[data-chapter-title]')];
-const chapterLabel = siteChapter?.querySelector('[data-site-chapter-label]');
-const chapterProgress = siteChapter?.querySelector('[data-site-chapter-progress]');
-const chapterCount = siteChapter?.querySelector('[data-site-chapter-count]');
-
-const updateSiteChapter = () => {
-  if (!siteChapter || !chapterSections.length) return;
-  const marker = window.scrollY + Math.min(window.innerHeight * .34, 280);
-  let activeIndex = 0;
-  chapterSections.forEach((section, index) => {
-    if (section.offsetTop <= marker) activeIndex = index;
-  });
-  const activeSection = chapterSections[activeIndex];
-  const total = chapterSections.length;
-  const maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
-  const scrollProgress = Math.min(window.scrollY / maxScroll, 1);
-  if (chapterLabel) chapterLabel.textContent = activeSection.dataset.chapterTitle;
-  if (chapterCount) chapterCount.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
-  if (chapterProgress) chapterProgress.style.width = `${Math.max(scrollProgress * 100, 4)}%`;
-  document.body.dataset.chapterTone = activeSection.dataset.chapterTone ?? '';
-};
-
-updateSiteChapter();
-window.addEventListener('scroll', updateSiteChapter, { passive: true });
-window.addEventListener('resize', updateSiteChapter);
-
 const assistantDialog = document.querySelector('[data-assistant-dialog]');
 const assistantOpenButton = document.querySelector('[data-assistant-open]');
 const assistantCloseButton = document.querySelector('[data-assistant-close]');
