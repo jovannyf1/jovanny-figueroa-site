@@ -7,46 +7,32 @@ const updateHeader = () => {
 updateHeader();
 window.addEventListener('scroll', updateHeader, { passive: true });
 
-const heroSwitcher = document.querySelector('[data-hero-switcher]');
-const heroSection = heroSwitcher?.closest('.hero');
-const heroSwitcherDetail = heroSwitcher?.querySelector('[data-hero-switcher-detail]');
-const heroSwitcherCount = heroSwitcher?.querySelector('[data-hero-switcher-count]');
-const heroArtCount = document.querySelector('[data-hero-art-count]');
-const heroArtLabel = document.querySelector('[data-hero-art-label]');
-const heroLenses = {
-  build: {
-    count: '01 / 03',
-    label: 'BUILD',
-    detail: 'I’m working toward machine learning engineering and the systems that will shape what comes next.',
-  },
-  learn: {
-    count: '02 / 03',
-    label: 'LEARN',
-    detail: 'I’m studying computer science at UIUC and learning how strong foundations become useful products.',
-  },
-  wander: {
-    count: '03 / 03',
-    label: 'WANDER',
-    detail: 'Chicago, the gym, new food spots, hikes, and stories worth coming back to keep me curious outside of code.',
-  },
-};
+const siteChapter = document.querySelector('[data-site-chapter]');
+const chapterSections = [...document.querySelectorAll('[data-chapter-title]')];
+const chapterLabel = siteChapter?.querySelector('[data-site-chapter-label]');
+const chapterProgress = siteChapter?.querySelector('[data-site-chapter-progress]');
+const chapterCount = siteChapter?.querySelector('[data-site-chapter-count]');
 
-const setHeroLens = (key) => {
-  const lens = heroLenses[key];
-  if (!lens) return;
-  heroSection?.setAttribute('data-lens', key);
-  if (heroSwitcherDetail) heroSwitcherDetail.textContent = lens.detail;
-  if (heroSwitcherCount) heroSwitcherCount.textContent = lens.count;
-  if (heroArtCount) heroArtCount.textContent = lens.count;
-  if (heroArtLabel) heroArtLabel.textContent = lens.label;
-  heroSwitcher?.querySelectorAll('[data-hero-lens]').forEach((button) => {
-    button.setAttribute('aria-pressed', String(button.dataset.heroLens === key));
+const updateSiteChapter = () => {
+  if (!siteChapter || !chapterSections.length) return;
+  const marker = window.scrollY + Math.min(window.innerHeight * .34, 280);
+  let activeIndex = 0;
+  chapterSections.forEach((section, index) => {
+    if (section.offsetTop <= marker) activeIndex = index;
   });
+  const activeSection = chapterSections[activeIndex];
+  const total = chapterSections.length;
+  const maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+  const scrollProgress = Math.min(window.scrollY / maxScroll, 1);
+  if (chapterLabel) chapterLabel.textContent = activeSection.dataset.chapterTitle;
+  if (chapterCount) chapterCount.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+  if (chapterProgress) chapterProgress.style.width = `${Math.max(scrollProgress * 100, 4)}%`;
+  document.body.dataset.chapterTone = activeSection.dataset.chapterTone ?? '';
 };
 
-heroSwitcher?.querySelectorAll('[data-hero-lens]').forEach((button) => {
-  button.addEventListener('click', () => setHeroLens(button.dataset.heroLens));
-});
+updateSiteChapter();
+window.addEventListener('scroll', updateSiteChapter, { passive: true });
+window.addEventListener('resize', updateSiteChapter);
 
 const assistantDialog = document.querySelector('[data-assistant-dialog]');
 const assistantOpenButton = document.querySelector('[data-assistant-open]');
