@@ -7,6 +7,47 @@ const updateHeader = () => {
 updateHeader();
 window.addEventListener('scroll', updateHeader, { passive: true });
 
+const heroSwitcher = document.querySelector('[data-hero-switcher]');
+const heroSection = heroSwitcher?.closest('.hero');
+const heroSwitcherDetail = heroSwitcher?.querySelector('[data-hero-switcher-detail]');
+const heroSwitcherCount = heroSwitcher?.querySelector('[data-hero-switcher-count]');
+const heroArtCount = document.querySelector('[data-hero-art-count]');
+const heroArtLabel = document.querySelector('[data-hero-art-label]');
+const heroLenses = {
+  build: {
+    count: '01 / 03',
+    label: 'BUILD',
+    detail: 'I’m working toward machine learning engineering and the systems that will shape what comes next.',
+  },
+  learn: {
+    count: '02 / 03',
+    label: 'LEARN',
+    detail: 'I’m studying computer science at UIUC and learning how strong foundations become useful products.',
+  },
+  wander: {
+    count: '03 / 03',
+    label: 'WANDER',
+    detail: 'Chicago, the gym, new food spots, hikes, and stories worth coming back to keep me curious outside of code.',
+  },
+};
+
+const setHeroLens = (key) => {
+  const lens = heroLenses[key];
+  if (!lens) return;
+  heroSection?.setAttribute('data-lens', key);
+  if (heroSwitcherDetail) heroSwitcherDetail.textContent = lens.detail;
+  if (heroSwitcherCount) heroSwitcherCount.textContent = lens.count;
+  if (heroArtCount) heroArtCount.textContent = lens.count;
+  if (heroArtLabel) heroArtLabel.textContent = lens.label;
+  heroSwitcher?.querySelectorAll('[data-hero-lens]').forEach((button) => {
+    button.setAttribute('aria-pressed', String(button.dataset.heroLens === key));
+  });
+};
+
+heroSwitcher?.querySelectorAll('[data-hero-lens]').forEach((button) => {
+  button.addEventListener('click', () => setHeroLens(button.dataset.heroLens));
+});
+
 const assistantDialog = document.querySelector('[data-assistant-dialog]');
 const assistantOpenButton = document.querySelector('[data-assistant-open]');
 const assistantCloseButton = document.querySelector('[data-assistant-close]');
