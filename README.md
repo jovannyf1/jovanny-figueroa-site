@@ -12,6 +12,10 @@ python3 -m http.server 4173
 
 Then visit `http://localhost:4173`.
 
+## Check that it works
+
+With Google Chrome installed, run `npm ci` once, then `npm test` after a local edit. The browser checks cover the six pages, the JOVANNY entry, project and contact paths, Águila's known and out-of-scope answers, both presentation viewers and their media, and phone-width overflow in Chrome. GitHub Actions runs the same local checks on pushes and pull requests using a fresh checkout. After publishing, run `npm run test:live` against the public address. These tests do not replace a visit from someone who has not seen the site; the current evidence and a short visitor task are in [VERIFICATION.md](VERIFICATION.md).
+
 ## Publish later
 
 The folder can be deployed directly to GitHub Pages, Netlify, Vercel, or another static host. Once a domain is chosen, update the site metadata and any canonical URL settings you want to add.
